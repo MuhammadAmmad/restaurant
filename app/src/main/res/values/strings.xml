@@ -1,0 +1,27 @@
+<resources>
+    <!-- Basic Strings -->
+
+    <string name="app_name">Restaurant</string>
+    <string name="app_root_url">https://api.doordash.com</string>
+
+    <!-- end points -->
+    <string name="endpoint_auth">/v2/auth/token/</string>
+    <string name="endpoint_profile">/v2/consumer/me/</string>
+    <string name="endpoint_restaurant">/v2/restaurant/</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="log_out">Log out</string>
+
+    <!--Screen Name -->
+    <string name="screen_home">Home</string>
+    <string name="screen_login">Sign in</string>
+    <string name="screen_fav">My Favorite</string>
+</resources>
