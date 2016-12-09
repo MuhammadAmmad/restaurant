@@ -1,6 +1,7 @@
 package az.com.restaurant.auth;
 
 import android.content.Intent;
+import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -11,6 +12,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
+import az.com.restaurant.AzBaseApp;
 import az.com.restaurant.AzUniversalValues;
 import az.com.restaurant.activities.AzBaseActivity;
 import az.com.restaurant.activities.SplashActivity;
@@ -74,8 +76,9 @@ public class AzAccountManager {
                     }
 
                     @Override
-                    public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
+                    public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject response) {
                         if(callback != null)
+                            Toast.makeText(AzBaseApp.getContext(), response.optString("non_field_errors"), Toast.LENGTH_SHORT).show();
                             callback.onFinishFailed();
                     }
                 });

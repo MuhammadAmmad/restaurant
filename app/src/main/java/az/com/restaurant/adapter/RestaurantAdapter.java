@@ -1,6 +1,7 @@
 package az.com.restaurant.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,9 +13,10 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import az.com.restaurant.model.AzRestaurant;
-import az.com.restaurant.data.AzRestaurantManager;
 import az.com.restaurant.R;
+import az.com.restaurant.activities.MapsActivity;
+import az.com.restaurant.data.AzRestaurantManager;
+import az.com.restaurant.model.AzRestaurant;
 
 /**
  * Created by ziweizeng on 11/21/16.
@@ -22,12 +24,14 @@ import az.com.restaurant.R;
 
 public class RestaurantAdapter extends BaseAdapter {
     private LayoutInflater mInflater;
-    List<AzRestaurant> mRestaurants = new ArrayList<AzRestaurant>();
+    private List<AzRestaurant> mRestaurants = new ArrayList<AzRestaurant>();
+    private FragmentActivity mActivity;
     boolean mIconClickable;
 
     public RestaurantAdapter(FragmentActivity activity,
                              List<AzRestaurant> restaurants, boolean iconClickable) {
         mRestaurants = restaurants;
+        mActivity = activity;
         mInflater = (LayoutInflater) activity
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         mIconClickable = iconClickable;
@@ -65,6 +69,13 @@ public class RestaurantAdapter extends BaseAdapter {
             holder.name.setText(restaurant.getName());
             holder.favIcon.setImageResource(AzRestaurantManager.getInstance()
                     .isRestaurantFav(restaurant.getId()) ? R.mipmap.fav : R.mipmap.un_fav);
+            convertView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(mActivity, MapsActivity.class);
+                    mActivity.startActivity(intent);
+                }
+            });
             if (mIconClickable) {
                 holder.favIcon.setOnClickListener(new View.OnClickListener() {
                     @Override

@@ -31,6 +31,7 @@
                     android:layout_height="wrap_content"
                     android:hint="@string/prompt_email"
                     android:inputType="textEmailAddress"
+                    android:text="allenzeng789@gmail.com"
                     android:maxLines="1"
                     android:singleLine="true" />
 
@@ -49,6 +50,7 @@
                     android:imeActionLabel="@string/action_sign_in_short"
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
+                    android:text="wwwhn881228"
                     android:maxLines="1"
                     android:singleLine="true" />
 
