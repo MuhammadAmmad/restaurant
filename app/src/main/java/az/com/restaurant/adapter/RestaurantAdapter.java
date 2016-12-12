@@ -73,6 +73,9 @@ public class RestaurantAdapter extends BaseAdapter {
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(mActivity, MapsActivity.class);
+                    intent.putExtra("lat", restaurant.getAddress().getLat());
+                    intent.putExtra("lon", restaurant.getAddress().getLng());
+                    intent.putExtra("name", restaurant.getName());
                     mActivity.startActivity(intent);
                 }
             });

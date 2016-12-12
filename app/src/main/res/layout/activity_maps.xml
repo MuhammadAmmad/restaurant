@@ -5,4 +5,31 @@
     android:name="com.google.android.gms.maps.SupportMapFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="az.com.restaurant.activities.MapsActivity" />
+    tools:context="az.com.restaurant.activities.MapsActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:padding="16dp">
+
+        <View
+            android:layout_height="40dp"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_text"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/res_name"
+            android:layout_marginTop="10dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="14dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textStyle=""
+            android:textSize="20sp"
+            android:text="AAA"/>
+    </RelativeLayout>
+
+
+</fragment>
