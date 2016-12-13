@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Toast;
 
 import az.com.restaurant.AzBaseApp;
 import az.com.restaurant.R;
@@ -86,6 +87,7 @@ public class LoginViewModel {
                     @Override
                     public void onFinishFailed() {
                         showProgress(false);
+                        handleLoginFailed();
                     }
 
                     @Override
@@ -98,6 +100,7 @@ public class LoginViewModel {
             @Override
             public void onFinishFailed() {
                 showProgress(false);
+                handleLoginFailed();
             }
 
             @Override
@@ -105,6 +108,10 @@ public class LoginViewModel {
 
             }
         });
+    }
+
+    private void handleLoginFailed() {
+        Toast.makeText(AzBaseApp.getContext(), "Login Failed", Toast.LENGTH_SHORT).show();
     }
 
     /**

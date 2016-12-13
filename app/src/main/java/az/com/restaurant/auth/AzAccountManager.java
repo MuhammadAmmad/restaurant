@@ -78,7 +78,6 @@ public class AzAccountManager {
                     @Override
                     public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject response) {
                         if(callback != null)
-                            Toast.makeText(AzBaseApp.getContext(), response.optString("non_field_errors"), Toast.LENGTH_SHORT).show();
                             callback.onFinishFailed();
                     }
                 });

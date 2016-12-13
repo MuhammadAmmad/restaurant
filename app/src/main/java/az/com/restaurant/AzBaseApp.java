@@ -3,6 +3,8 @@ package az.com.restaurant;
 import android.app.Application;
 import android.content.Context;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 /**
  * Created by ziweizeng on 11/20/16.
  */
@@ -24,6 +26,7 @@ public class AzBaseApp extends Application {
         super.onCreate();
         mInstance = this;
         mContext = this.getApplicationContext();
+        Fresco.initialize(this);
     }
 
 }

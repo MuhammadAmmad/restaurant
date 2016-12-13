@@ -23,6 +23,7 @@ import cz.msebera.android.httpclient.Header;
 public class AzRestaurantManager {
     private static AzRestaurantManager instance;
     private List<AzRestaurant> favRestaurants = new ArrayList<>();
+    private List<AzRestaurant> allRestaurant = new ArrayList<>();
 
     public static synchronized AzRestaurantManager getInstance() {
         if(instance == null) {
@@ -79,7 +80,8 @@ public class AzRestaurantManager {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 if (callback != null)
-                    callback.onFinishWithResult(generateRestaurantList(response));
+                    generateRestaurantList(response);
+                    callback.onFinishWithResult(allRestaurant);
             }
 
             @Override
@@ -94,7 +96,16 @@ public class AzRestaurantManager {
         favRestaurants = new ArrayList<>();
     }
 
-    private List<AzRestaurant> generateRestaurantList(JSONArray jsonArray) {
+    public AzRestaurant getRestaurantById(String id) {
+        for (AzRestaurant restaurant : allRestaurant) {
+            if(restaurant.getId().equals(id)) {
+                return  restaurant;
+            }
+        }
+        return null;
+    }
+
+    private void generateRestaurantList(JSONArray jsonArray) {
         List<AzRestaurant> restaurants = new ArrayList<>();
         for (int i = 0, size = jsonArray.length(); i < size; i++) {
             try {
@@ -104,6 +115,6 @@ public class AzRestaurantManager {
                 e.printStackTrace();
             }
         }
-        return restaurants;
+        allRestaurant = restaurants;
     }
 }

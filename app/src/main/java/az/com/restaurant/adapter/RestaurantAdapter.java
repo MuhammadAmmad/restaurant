@@ -69,16 +69,16 @@ public class RestaurantAdapter extends BaseAdapter {
             holder.name.setText(restaurant.getName());
             holder.favIcon.setImageResource(AzRestaurantManager.getInstance()
                     .isRestaurantFav(restaurant.getId()) ? R.mipmap.fav : R.mipmap.un_fav);
-            convertView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent = new Intent(mActivity, MapsActivity.class);
-                    intent.putExtra("lat", restaurant.getAddress().getLat());
-                    intent.putExtra("lon", restaurant.getAddress().getLng());
-                    intent.putExtra("name", restaurant.getName());
-                    mActivity.startActivity(intent);
-                }
-            });
+//            convertView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    Intent intent = new Intent(mActivity, MapsActivity.class);
+//                    intent.putExtra("lat", restaurant.getAddress().getLat());
+//                    intent.putExtra("lon", restaurant.getAddress().getLng());
+//                    intent.putExtra("name", restaurant.getName());
+//                    mActivity.startActivity(intent);
+//                }
+//            });
             if (mIconClickable) {
                 holder.favIcon.setOnClickListener(new View.OnClickListener() {
                     @Override
